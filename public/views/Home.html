@@ -1,3 +1,9 @@
 <div ng-controller="HomeController as vm">
-	<h1>{{vm.title}}</h1>
+	<div ng-repeat="p in vm.polls">
+		<div class="col-md-3">
+			<h4><a ui-sref="aPoll({id: p._id})"></a>{{p.question}}</h4>
+			<h6>{{p.tags}}</h6>
+			<!-- <button type="button" ng-click="">Take</button> -->
+		</div>
+	</div>
 </div>

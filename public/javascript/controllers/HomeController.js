@@ -5,5 +5,9 @@
 
 	function HomeController(HomeFactory) {
 		var vm = this;
+
+	HomeFactory.getPolls().then(function(res){
+		vm.poll = res;
+	});
 	}
 })();
