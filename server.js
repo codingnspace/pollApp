@@ -1,8 +1,13 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
+
+require('./models/Poll');
+
+mongoose.connect('mongodb://localhost/polls');
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -21,10 +26,19 @@ app.set('view options', {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+var pollRoutes = require('./routes/pollRoutes');
+
+app.use(function(err,req,res,next){
+	res.status(400).send(err);
+});
+
+
 //on homepage load, render the index page
 app.get('/', function(req, res) {
 	res.render('index');
 });
+
+app.use('/api/v1/poll', pollRoutes);
 
 var server = app.listen(port, function() {
 	var host = server.address().address;
