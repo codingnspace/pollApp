@@ -7,7 +7,7 @@
 		var vm = this;
 
 	HomeFactory.getPolls().then(function(res){
-		vm.poll = res;
+		vm.polls = res;
 	});
 	}
 })();

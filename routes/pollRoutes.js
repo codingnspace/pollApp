@@ -10,4 +10,26 @@ router.get('/',function(req,res,next){
   });
 });
 
+router.post('/', function(req,res,next){
+  var poll = new Poll(req.body);
+  poll.created = new Date();
+  poll.completed = null;
+  poll.save(function(err,result){
+    if(err) return next(err);
+    res.send(result);
+  });
+});
+
+router.param('id', function(req,res,next,id){
+  Poll.findOne({_id:id}, function(err, result){
+    if(err) return next(err);
+    if(!result) return next({err: "couldnt find that"});
+    req.poll = result;
+    next();
+  });
+});
+
+router.get('/:id', function(req,res,next){
+  res.send(req.poll);
+});
 module.exports = router;

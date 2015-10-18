@@ -1,0 +1,12 @@
+<div ng-controller="AddPollController as vm">
+  <form ng-submit="vm.addPoll();" class="well container">
+    <label>Poll Question</label>
+    <input class="form-control" ng-model="vm.newPoll.question" placeholder="Question...">
+    <label>Poll Options</label>
+    <input class="form-control" ng-model="vm.newPoll.option[0]" placeholder="Option...">
+    <input class="form-control" ng-model="vm.newPoll.option[1]" placeholder="Option...">
+    <label>Tags</label>
+    <!-- <input class="form-control" ng-model="vm.newPoll.tag" placeholder="Tags..."> -->
+    <button type="submit" class="btn btn-success" >Submit</button>
+  </form>
+</div>

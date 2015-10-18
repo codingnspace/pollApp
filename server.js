@@ -38,7 +38,7 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
-app.use('/api/v1/poll', pollRoutes);
+app.use('/api/v1/polls', pollRoutes);
 
 var server = app.listen(port, function() {
 	var host = server.address().address;

@@ -6,9 +6,12 @@
 		$stateProvider.state('Home',{
 			url: '/',
 			templateUrl: 'views/home.html'
-		}).state("APoll",{
-			url: '/Polls/:id',
-			templateUrl:'views/partPoll.html'
+		}).state("PollDetails",{
+			url: '/Poll/:id',
+			templateUrl:'views/polldetails.html'
+		}).state("Add",{
+			url: '/add',
+			templateUrl: 'views/add.html',
 		});
 		$urlRouterProvider.otherwise('/');
 	}

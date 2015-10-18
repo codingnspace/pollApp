@@ -16,6 +16,24 @@ o.getPolls = function(){
 	return q.promise;
 };
 
+o.addPoll = function(newPoll){
+	var q = $q.defer();
+	$http.post('/api/v1/polls', newPoll)
+	.then(function(res){
+		q.resolve(res.data);
+	});
+	return q.promise;
+};
+
+o.getPollById = function(id){
+	var q = $q.defer();
+	$http.get('api/v1/polls/'  + id)
+	.then(function(res){
+		q.resolve(res.data);
+	});
+	return q.promise;
+};
+
 		return o;
 	}
 })();

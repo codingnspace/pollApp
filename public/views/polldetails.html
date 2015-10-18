@@ -1,0 +1,8 @@
+<div ng-controller="PollDetailController as vm">
+  teasfs
+    <h1>{{vm.poll.question}}</h1>
+    <div class="radio" ng-repeat= "o in vm.poll.option track by $index">
+      <label><input type="radio" ng-model="vm.poll.option._$index" value="{{$index}}">{{o}}</label>
+    </div>
+    <br>
+</div>
