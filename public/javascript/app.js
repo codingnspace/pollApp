@@ -7,11 +7,14 @@
 			url: '/',
 			templateUrl: 'views/home.html'
 		}).state("PollDetails",{
-			url: '/Poll/:id',
+			url: '/poll/:id',
 			templateUrl:'views/polldetails.html'
 		}).state("Add",{
 			url: '/add',
 			templateUrl: 'views/add.html',
+		}).state("Results",{
+			url:'/results',
+			templateUrl: 'views/results.html'
 		});
 		$urlRouterProvider.otherwise('/');
 	}
