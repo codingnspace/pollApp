@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('app', ['ui.router'])
+	angular.module('app', ['ui.router','chart.js'])
 	.config(Config);
 	function Config($stateProvider, $urlRouterProvider) {
 		$stateProvider.state('Home',{
@@ -13,7 +13,7 @@
 			url: '/add',
 			templateUrl: 'views/add.html',
 		}).state("Results",{
-			url:'/results',
+			url:'/results/:id',
 			templateUrl: 'views/results.html'
 		});
 		$urlRouterProvider.otherwise('/');
