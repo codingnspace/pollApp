@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 
 var PollSchema = new mongoose.Schema({
   question:{ required: true, type: String},
-  option: { required: true, type: Array},
+  option: [
+    {
+    title: String,
+    count: Number,
+  }],
   completed: Date,
   // tags: Array
 });

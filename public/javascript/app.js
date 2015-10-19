@@ -13,9 +13,15 @@
 			url: '/add',
 			templateUrl: 'views/add.html',
 		}).state("Results",{
-			url:'/results/:id',
+			url:'/results',
 			templateUrl: 'views/results.html'
+		}).state("Login", {
+			url: "/login",
+			templateUrl: 'views/login.html'
+		}).state("Register",{
+			url: '/register',
+			templateUrl: 'views/register.html'
 		});
-		$urlRouterProvider.otherwise('/');
+		// $urlRouterProvider.otherwise('/');
 	}
 })();

@@ -6,6 +6,8 @@ var app = express();
 var port = process.env.PORT || 8080;
 
 require('./models/Poll');
+require('./models/Users');
+
 
 mongoose.connect('mongodb://localhost/polls');
 
@@ -27,6 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var pollRoutes = require('./routes/pollRoutes');
+var userRoutes = require('./routes/userRoutes')
 
 app.use(function(err,req,res,next){
 	res.status(400).send(err);
@@ -39,6 +42,7 @@ app.get('/', function(req, res) {
 });
 
 app.use('/api/v1/polls', pollRoutes);
+app.use('/api/v1/users', userRoutes);
 
 var server = app.listen(port, function() {
 	var host = server.address().address;

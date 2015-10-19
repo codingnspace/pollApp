@@ -12,9 +12,20 @@ router.get('/',function(req,res,next){
 
 router.post('/', function(req,res,next){
   var poll = new Poll(req.body);
-  poll.created = new Date();
+  // poll.created = new Date();
   poll.completed = null;
   poll.save(function(err,result){
+    if(err) return next(err);
+    res.send(result);
+  });
+});
+
+router.put('/',function(req,res,next){
+   var result = new Poll(req.body);
+   result.option.count++;
+  // Poll.update({$set: {option: req.newResult.option.count}},
+  result.save(
+  function(err,result){
     if(err) return next(err);
     res.send(result);
   });

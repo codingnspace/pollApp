@@ -1,11 +1,11 @@
 <div ng-controller="PollDetailController as vm">
-    <h1>{{vm.poll.question}}</h1>
-    <div class="radio" ng-repeat= "o in vm.poll.option track by $index">
-      <label><input type="radio" ng-model="vm.poll.option._$index" value="{{$index}}">{{o.title}}</label>
+    <h1>{{vm.comPoll.question}}</h1>
+    <div class="radio" ng-repeat= "o in vm.comPoll.option track by $index">
+      <label><input type="radio" ng-model="o._id" value="{{o.title}}">{{o.title}}</label>
     </div>
     <br>
     <div style="text-align: right";>
-      <button type="button" class="btn btn-primary" ui-sref="Results({id: o._id})">Submit</button>
-      <button type="button" class="btn btn-danger" ui-sref="Home" ng-click="vm.addResults();">Cancel</button>
+      <button type="button" class="btn btn-primary"  ng-click="vm.submitPoll()">Submit</button>
+      <button type="button" class="btn btn-danger" ui-sref="Home" >Cancel</button>
     </div>
 </div>

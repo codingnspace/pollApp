@@ -5,20 +5,20 @@
 
 	function ResultsController($state, $stateParams,HomeFactory) {
 		var vm = this;
-	  vm.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-	  vm.data = [300, 500, 100];
+	  vm.labels = ["Yes", "No", "Maybe so"];
+	  vm.data = [3,1,9];
 
 
 			// if(!$stateParams.id) $state.go('Home');
-			HomeFactory.getPollById($stateParams.id).then(function(res) {
+			HomeFactory.getResultsById($stateParams.id).then(function(res) {
 				vm.pollResults = res;
 			});
 
 vm.addResults = function(){
-		HomeFactory.putResults(vm.pollResults).then(function(){
-			$state.go('Results');
-		}	);
-			};
-
+	for (var i = 0; i < vm.pollResults.option.length; i++) {
+			vm.labels.push(vm.pollResults.option[i].title);
+			vm.data.push(vm.pollResults.option[i].count);
+					}
+};
 }
 })();

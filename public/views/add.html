@@ -3,8 +3,13 @@
     <label>Poll Question</label>
     <input class="form-control" ng-model="vm.newPoll.question" placeholder="Question...">
     <label>Poll Options</label>
-    <input class="form-control" ng-model="vm.newPoll.option[0].title" placeholder="Option...">
-    <input class="form-control" ng-model="vm.newPoll.option[1].title" placeholder="Option...">
+    <input class="form-control" ng-model="vm.newPoll.title" placeholder="Option...">
+<button type="button" ng-click="vm.newPoll.option.push({})">Add New Option</button>
+    <ul>
+      <li ng-repeat="a in vm.newPoll.option">
+        <input class="form-control" ng-model="vm.newPoll.option[$index].title" >
+      </li>
+    </ul>
     <label>Tags</label>
     <!-- <input class="form-control" ng-model="vm.newPoll.tag" placeholder="Tags..."> -->
     <button type="submit" class="btn btn-success" >Submit</button>

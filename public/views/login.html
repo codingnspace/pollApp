@@ -1,0 +1,9 @@
+<br>
+<form class="well container" ng-submit="nav.loginUser()">
+  <label>Username</label>
+  <input required class="form-control" placeholder="Username..." ng-model="nav.user.username" >
+  <label>Password</label>
+  <input class="form-control" type="password" placeholder="password..." ng-model="nav.user.password" >
+  <a ui-sref="Home" class="btn btn-primary">Login</a>
+  <a ui-sref="Register" class="btn btn-primary">Register</a>
+</form>
